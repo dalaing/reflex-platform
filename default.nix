@@ -5,6 +5,7 @@
 , enableExposeAllUnfoldings ? true
 , enableTraceReflexEvents ? false
 , useFastWeak ? true
+, useDebugCycles ? false
 , useReflexOptimizer ? false
 , useTextJSString ? true # Use an implementation of "Data.Text" that uses the more performant "Data.JSString" from ghcjs-base under the hood.
 , useWebkit2Gtk ? false # Enable webkit2gtk to build reflex-dom desktop apps
@@ -99,7 +100,7 @@ let iosSupport = system == "x86_64-darwin";
           inherit (self) lib;
           haskellLib = self.haskell.lib;
           inherit
-            useFastWeak useReflexOptimizer enableLibraryProfiling enableTraceReflexEvents
+            useDebugCycles useFastWeak useReflexOptimizer enableLibraryProfiling enableTraceReflexEvents
             useTextJSString enableExposeAllUnfoldings __useTemplateHaskell
             haskellOverlaysPre
             haskellOverlaysPost

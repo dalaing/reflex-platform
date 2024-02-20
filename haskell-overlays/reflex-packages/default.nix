@@ -1,7 +1,7 @@
 { haskellLib
 , lib, nixpkgs
 , thunkSet, fetchFromGitHub, fetchFromBitbucket, hackGet
-, useFastWeak, useReflexOptimizer, enableTraceReflexEvents, enableLibraryProfiling, __useTemplateHaskell
+, useDebugCycles, useFastWeak, useReflexOptimizer, enableTraceReflexEvents, enableLibraryProfiling, __useTemplateHaskell
 , useWebkit2Gtk
 }:
 
@@ -48,6 +48,7 @@ in
     reflexOptimizerFlag
     useTemplateHaskellFlag
     (lib.optional useFastWeak "-ffast-weak")
+    (lib.optional useDebugCycles "-fdebug-cycles")
   ])) {};
 
   reflex-todomvc =

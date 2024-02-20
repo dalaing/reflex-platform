@@ -1,6 +1,7 @@
 { lib
 , haskellLib
 , nixpkgs
+, useDebugCycles
 , useFastWeak
 , useReflexOptimizer
 , enableLibraryProfiling
@@ -171,7 +172,7 @@ rec {
   reflexPackages = import ./reflex-packages {
     inherit
       haskellLib lib nixpkgs thunkSet fetchFromGitHub fetchFromBitbucket hackGet
-      useFastWeak useReflexOptimizer enableTraceReflexEvents enableLibraryProfiling __useTemplateHaskell
+      useDebugCycles useFastWeak useReflexOptimizer enableTraceReflexEvents enableLibraryProfiling __useTemplateHaskell
       useWebkit2Gtk
       ;
   };
